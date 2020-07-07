@@ -1,0 +1,10 @@
+{
+  "name": "cicd",
+  "repository": "https://github.com/Logqwerty/CI-CD-with-jenkins",
+  "author": "Logqwerty <inm2790@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ]
+}
