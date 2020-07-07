@@ -1,0 +1,8 @@
+FROM node:12.13
+
+RUN mkdir /usr/youngstar/api
+WORKDIR /usr/youngstar/api
+
+COPY dist/ /usr/youngstar/api
+
+CMD ["node", "dist/index.js"]
