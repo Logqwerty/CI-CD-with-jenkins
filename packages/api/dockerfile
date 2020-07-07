@@ -1,10 +1,10 @@
-FROM node:12.13
+FROM node:12.13-alpine
 
 RUN mkdir -p /usr/youngstar/api
 WORKDIR /usr/youngstar/api
 
 COPY package.json ./package.json
-RUN npm install
+RUN npm install --production
 
 COPY dist/ ./
 
