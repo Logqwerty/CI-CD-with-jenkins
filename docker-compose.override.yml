@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: packages/web
+      dockerfile: dockerfile-test
+  api:
+    build:
+      context: packages/api
+      dockerfile: dockerfile
