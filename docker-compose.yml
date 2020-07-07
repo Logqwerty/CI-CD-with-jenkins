@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  web:
+    image: youngstar.kr.ncr.ntruss.com/youngstar-web:latest
+    build:
+      context: packages/web
+      dockerfile: dockerfile-test
+    ports:
+      - "80:80"
+    links:
+      - app:app
+  app:
+    image: youngstar.kr.ncr.ntruss.com/youngstar-api:latest
+    build:
+      context: packages/api
+      dockerfile: dockerfile
+    ports:
+      - "4000:4000"
