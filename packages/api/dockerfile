@@ -3,6 +3,9 @@ FROM node:12.13
 RUN mkdir -p /usr/youngstar/api
 WORKDIR /usr/youngstar/api
 
+COPY package.json /usr/src/server/package.json
+RUN npm install
+
 COPY dist/ /usr/youngstar/api
 
 CMD ["node", "index.js"]
