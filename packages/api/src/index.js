@@ -53,6 +53,13 @@ server.applyMiddleware({ app });
     });
     console.info("db connection success!");
     app.listen({ port: 4000 }, () => console.log(`🚀 Server ready!`));
+    const user = await UserModel.find({ name: "aaa" });
+    if (!user) {
+      await UserModel.create({
+        name: "aaa",
+        age: 20,
+      });
+    }
   } catch (err) {
     console.error(err);
   }

@@ -11,3 +11,11 @@ services:
     image: youngstar.kr.ncr.ntruss.com/youngstar-api:latest
     ports:
       - "4000:4000"
+    links:
+      - mongos
+  mongos:
+    image: mongo:4.2.7
+    ports:
+      - "27017:27017"
+    volumes:
+      - "/usr/youngstar/data:/data/db"
