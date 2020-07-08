@@ -2,21 +2,28 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-const URL = "http://localhost:4000/graphql";
+const URL = process.env.REACT_APP_API_URL;
 
 function App() {
-  const [hello, setHello] = useState("");
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     fetch(URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: "{ hello }" }),
+      body: JSON.stringify({
+        query: `{
+        user {
+          name
+          age
+        }
+      }`,
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res.data);
-        return setHello(res.data.hello);
+        return setUser(res.data.user);
       });
   }, []);
 
@@ -33,7 +40,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {hello}
+          Hello! {user.name}
         </a>
       </header>
     </div>
